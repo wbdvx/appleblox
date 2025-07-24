@@ -1,12 +1,12 @@
-// Get the most recent opened roblox path
+// Get the most recent opened g.app path
 import { os } from '@neutralinojs/lib';
 import path from 'path-browserify';
 import shellFS from '../tools/shellfs';
 
-export let robloxPath: string = '/Applications/Roblox.app';
+export let robloxPath: string = '/Applications/g.app';
 
 async function getMostRecentRoblox() {
-	const knownPaths = ['/Applications/Roblox.app/', path.join(await os.getEnv('HOME'), 'Applications/Roblox.app/')];
+	const knownPaths = ['/Applications/g.app/', path.join(await os.getEnv('HOME'), 'Applications/g.app/')];
 	let mostRecentPath = '';
 	let date = 0;
 	for (const path of knownPaths) {
@@ -19,7 +19,7 @@ async function getMostRecentRoblox() {
 		}
 	}
 	robloxPath = mostRecentPath;
-	console.info(`[Roblox.Path] Most recently opened Roblox app is at: "${robloxPath}"`);
+	console.info(`[g.Path] Most recently opened g.app is at: "${robloxPath}"`);
 }
 
 getMostRecentRoblox();
